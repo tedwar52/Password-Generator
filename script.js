@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var pass = "";
+var password = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -11,7 +12,7 @@ function writePassword() {
 }
 
 function generatePassword() {
-  const passLength = prompt("How many characters long would you like your password? (8-128characters)");
+  var passLength = prompt("How many characters long would you like your password? (8-128characters)");
   console.log(passLength);
   
   var criteria = confirm("Does your password require special criteria?");
@@ -36,34 +37,19 @@ function generatePassword() {
       console.log("symbols generated " + pass);
     }
   }
+  console.log(pass);
 
-  /*
-  var password = ""
+  //--THIS RETURNS PASSWORD AS NUMERICAL ONLY IN THE CORRECT LENGTH
   for (var i=0; i < passLength; i++) {
-    password = password +
+    password += pass.charAt(Math.floor(Math.random() * pass.length));
   }
-  */
+  console.log(password);
   
-  /*
-  var passwordLength = passlength;
-  for (var i=0; i < passwordLength.length; i++) {
-    pass +=
-  }
-  */
-  /*
-  const hasLower = lower === true;
-  const hasUpper = upper === true;
-  const hasNumbs = numbs === true;
-  const hasSpecial = special === true;
-  console.log(hasLower, hasUpper, hasNumbs, hasSpecial);
-  */
-  
+
 }
 
-//Generator functions
-//this will display a random number 0-9
-console.log(Math.floor(Math.random() * 9));
 
+//Generator functions
 function getRandomNumber() {
   const numbers = "0123456789";
   return numbers[Math.floor(Math.random() * numbers.length)];
@@ -73,19 +59,16 @@ function getRandomLower() {
   const lettersLower = "abcdefghijklmnopqrstuvwxyz";
   return lettersLower[Math.floor(Math.random() * lettersLower.length)];
 };
-console.log(getRandomLower());
 
 function getRandomUpper() {
   const lettersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return lettersUpper[Math.floor(Math.random() * lettersUpper.length)];
 };
-console.log(getRandomUpper());
 
 function getRandomSymbol() {
   const symbols = "!#$%&*/-+";
   return symbols[Math.floor(Math.random() * symbols.length)];
 };
-console.log(getRandomSymbol());
 
 
 // Add event listener to generate button
