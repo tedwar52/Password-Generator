@@ -10,18 +10,35 @@ function writePassword() {
 }
 
 function generatePassword() {
-  var length = prompt("How many characters long would you like your password? (8-128characters)");
+  const length = prompt("How many characters long would you like your password? (8-128characters)");
   console.log(length);
   
   var criteria = confirm("Does your password require special criteria?");
   if (criteria) {
-    var lower = confirm("Do you require lowercase letters?");
     var upper = confirm("Do you require uppercase letters?");
+    if(upper === true) {
+      getRandomUpper();
+    } else {
+      getRandomLower();
+    }
     var numbs = confirm("Do you require any numbers?");
+    if(numbs === true) {
+      getRandomNumber();
+    }
     var special = confirm("Do you require any special characters?");
+    if(special === true) {
+      getRandomSymbol();
+    }
   }
-  
 
+  /*
+  const hasLower = lower === true;
+  const hasUpper = upper === true;
+  const hasNumbs = numbs === true;
+  const hasSpecial = special === true;
+  console.log(hasLower, hasUpper, hasNumbs, hasSpecial);
+  */
+  
 }
 
 //Generator functions
